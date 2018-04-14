@@ -1,15 +1,15 @@
 import { LintError, Rule } from '../types';
 
 const rule: Rule = {
-  name: 'img-alt',
+  name: 'a-rel',
   lint($) {
     const errors: LintError[] = [];
 
-    $('img').each((i, elem) => {
-      if (!$(elem).attr('alt')) {
+    $('a').each((i, elem) => {
+      if (!$(elem).attr('rel')) {
         errors.push({
           element: elem,
-          message: '<img> tag requires alt attribute'
+          message: '<a> tag requires rel attribute'
         });
       }
     });
@@ -18,4 +18,4 @@ const rule: Rule = {
   }
 };
 
-export = rule;
+export = Rule;
