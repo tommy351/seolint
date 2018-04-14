@@ -15,4 +15,4 @@ const rule: Rule = {
   }
 };
 
-export = rule;
+export default rule;

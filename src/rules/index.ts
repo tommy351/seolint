@@ -1,5 +1,5 @@
 export default {
-  'a-rel': require('./a-rel'),
-  'img-alt': require('./img-alt'),
-  'only-one-h1': require('./only-one-h1')
+  'a-rel': require('./a-rel').default,
+  'img-alt': require('./img-alt').default,
+  'only-one-h1': require('./only-one-h1').default
 };

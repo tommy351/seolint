@@ -18,4 +18,4 @@ const rule: Rule = {
   }
 };
 
-export = Rule;
+export default rule;
