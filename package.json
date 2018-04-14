@@ -10,7 +10,7 @@
   "author": "Tommy Chen (tommy351@gmail.com)",
   "license": "ISC",
   "dependencies": {
-    "cheerio": "^1.0.0-rc.2",
+    "cheerio": "cheeriojs/cheerio#v1.0.0",
     "get-stream": "^3.0.0"
   },
   "devDependencies": {
@@ -40,15 +40,7 @@
       "^.+\\.tsx?$": "ts-jest"
     },
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
-    "moduleFileExtensions": [
-      "ts",
-      "js",
-      "json",
-      "node"
-    ],
-    "testPathIgnorePatterns": [
-      "<rootDir>/dist/",
-      "<rootDir>/node_modules/"
-    ]
+    "moduleFileExtensions": ["ts", "js", "json", "node"],
+    "testPathIgnorePatterns": ["<rootDir>/dist/", "<rootDir>/node_modules/"]
   }
 }

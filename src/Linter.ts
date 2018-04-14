@@ -5,10 +5,11 @@ import { Readable } from 'stream';
 import { promisify } from 'util';
 import defaultRules from './rules';
 import { LintResult, Rule } from './types';
+import { getLocation } from './utils/getLocation';
 
 const readFileAsync = promisify(readFile);
 
-export interface LinterOptions extends CheerioOptionsInterface {
+export interface LinterOptions {
   rules: {
     [key: string]: any;
   };
@@ -33,6 +34,10 @@ export class Linter {
     return this.runLint(await getStream(input));
   }
 
+  public getRule(name: string): Rule | undefined {
+    return this.rules[name];
+  }
+
   public defineRules(rules: { [key: string]: Rule }) {
     for (const key of Object.keys(rules)) {
       this.rules[key] = rules[key];
@@ -40,14 +45,15 @@ export class Linter {
   }
 
   private runLint(input: string): LintResult {
-    const { rules, ...options } = this.options;
-    const $ = load(input, options);
-    const list: Rule[] = [];
+    const $ = load(input, {
+      locationInfo: true
+    } as any);
+    const rules: Rule[] = [];
     const initial: LintResult = {
       errors: []
     };
 
-    for (const key of Object.keys(rules)) {
+    for (const key of Object.keys(this.options.rules)) {
       const rule = this.rules[key];
 
       if (!rule) {
@@ -57,16 +63,21 @@ export class Linter {
       const ruleOptions = this.options.rules[key];
 
       if (ruleOptions) {
-        list.push(rule);
+        rules.push(rule);
       }
     }
 
-    return list.reduce((acc, rule) => {
+    return rules.reduce((acc, rule) => {
       const result = rule.lint($);
+      const errors = result.errors.map(err => ({
+        ...err,
+        location: err.location || getLocation(err.element),
+        name: rule.name
+      }));
 
       return {
         ...acc,
-        errors: [...acc.errors, ...result.errors]
+        errors: [...acc.errors, ...errors]
       };
     }, initial);
   }

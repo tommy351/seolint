@@ -8,6 +8,7 @@ const rule: Rule = {
     $('img').each((i, elem) => {
       if (!$(elem).attr('alt')) {
         errors.push({
+          element: elem,
           message: '<img> tag requires alt attribute'
         });
       }
