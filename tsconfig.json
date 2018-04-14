@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "es2015",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "strict": true,
+    "esModuleInterop": true,
+    "declaration": true,
+    "allowSyntheticDefaultImports": true,
+    "outDir": "dist",
+    "noUnusedLocals": true
+  }
+}
