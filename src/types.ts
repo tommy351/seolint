@@ -1,5 +1,4 @@
 export interface Rule {
-  name: string;
   lint($: CheerioStatic): LintResult;
 }
 

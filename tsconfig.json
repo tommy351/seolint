@@ -8,6 +8,8 @@
     "declaration": true,
     "allowSyntheticDefaultImports": true,
     "outDir": "dist",
-    "noUnusedLocals": true
+    "noUnusedLocals": true,
+    "noEmitHelpers": true,
+    "importHelpers": true
   }
 }

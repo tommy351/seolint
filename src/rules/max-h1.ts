@@ -4,12 +4,6 @@ const rule: Rule = {
   lint($) {
     const errors: LintError[] = [];
 
-    if ($('h1').length > 1) {
-      errors.push({
-        message: 'More than one <h1> tags exist'
-      });
-    }
-
     return { errors };
   }
 };

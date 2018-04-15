@@ -1,7 +1,6 @@
 import { LintError, Rule } from '../types';
 
 const rule: Rule = {
-  name: 'a-rel',
   lint($) {
     const errors: LintError[] = [];
 

@@ -12,7 +12,8 @@
   "license": "ISC",
   "dependencies": {
     "cheerio": "cheeriojs/cheerio#v1.0.0",
-    "get-stream": "^3.0.0"
+    "get-stream": "^3.0.0",
+    "tslib": "^1.9.0"
   },
   "devDependencies": {
     "@types/cheerio": "^0.22.7",
@@ -44,10 +45,21 @@
       "^.+\\.tsx?$": "ts-jest"
     },
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
-    "moduleFileExtensions": ["ts", "js", "json", "node"],
-    "testPathIgnorePatterns": ["<rootDir>/dist/", "<rootDir>/node_modules/"]
+    "moduleFileExtensions": [
+      "ts",
+      "js",
+      "json",
+      "node"
+    ],
+    "testPathIgnorePatterns": [
+      "<rootDir>/dist/",
+      "<rootDir>/node_modules/"
+    ]
   },
   "lint-staged": {
-    "*.ts": ["tslint --fix --project .", "git add"]
+    "*.ts": [
+      "tslint --fix --project .",
+      "git add"
+    ]
   }
 }

@@ -1,7 +1,6 @@
 import { LintError, Rule } from '../types';
 
 const rule: Rule = {
-  name: 'img-alt',
   lint($) {
     const errors: LintError[] = [];
 
