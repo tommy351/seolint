@@ -13,10 +13,10 @@ const options = {
 
 try {
   const { errors } = linter.lintString(
-    `
-<!DOCTYPE html>
+    `<!DOCTYPE html>
 <html>
 <head>
+  <title>Example</title>
 </head>
 <body>
   <h1>Important</h1>
@@ -25,8 +25,7 @@ try {
   <a href="http://example.com">Example</a>
   <h1>Really important</h1>
 </body>
-</html>
-`,
+</html>`,
     options
   );
 
