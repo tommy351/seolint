@@ -11,6 +11,7 @@
   "author": "Tommy Chen (tommy351@gmail.com)",
   "license": "ISC",
   "dependencies": {
+    "ajv": "^6.4.0",
     "cheerio": "cheeriojs/cheerio#v1.0.0",
     "get-stream": "^3.0.0",
     "tslib": "^1.9.0"

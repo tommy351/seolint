@@ -5,15 +5,7 @@ describe('constructor', () => {
   let linter: Linter;
 
   beforeEach(() => {
-    linter = new Linter({
-      rules: {}
-    });
-  });
-
-  it('should set options', () => {
-    expect(linter).toHaveProperty('options', {
-      rules: {}
-    });
+    linter = new Linter();
   });
 
   it('should define default rules', () => {
@@ -40,9 +32,7 @@ describe('getRule', () => {
   let linter: Linter;
 
   beforeEach(() => {
-    linter = new Linter({
-      rules: {}
-    });
+    linter = new Linter();
 
     linter.defineRules({
       foo: mockRule
@@ -62,9 +52,7 @@ describe('defineRules', () => {
   let linter: Linter;
 
   beforeEach(() => {
-    linter = new Linter({
-      rules: {}
-    });
+    linter = new Linter();
   });
 
   it('should set rule on the linter', () => {

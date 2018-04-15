@@ -1,5 +1,6 @@
 export interface Rule {
-  lint($: CheerioStatic): LintResult;
+  schema?: object;
+  lint($: CheerioStatic, options?: any): LintResult;
 }
 
 export interface LintResult {

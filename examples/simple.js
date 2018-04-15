@@ -1,12 +1,18 @@
 const seolint = require('..');
 
-const linter = new seolint.Linter({
+const linter = new seolint.Linter();
+const options = {
   rules: {
-    'img-alt': true
+    'a-rel': true,
+    'img-alt': true,
+    'max-strong': true,
+    'only-one-h1': true
   }
-});
+};
 
-const result = linter.lintString(`
+try {
+  const result = linter.lintString(
+    `
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,6 +21,11 @@ const result = linter.lintString(`
   <img src="foo.jpg">
 </body>
 </html>
-`);
+`,
+    options
+  );
 
-console.log('result', result);
+  console.log('result', result);
+} catch (err) {
+  console.error(err);
+}
