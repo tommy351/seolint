@@ -1,4 +1,5 @@
 import { ValidationError } from 'ajv';
+import mockFS from 'mock-fs';
 import { Readable } from 'stream';
 import { Linter } from '../Linter';
 import defaultRules from '../rules';
@@ -133,7 +134,35 @@ describe('lintString', () => {
 });
 
 describe('lintFile', () => {
-  //
+  let linter: Linter;
+  let path: string;
+  let result: LintResult;
+
+  beforeEach(() => (linter = new Linter()));
+
+  beforeEach(async () => {
+    result = await linter.lintFile(path, {
+      rules: {
+        'img-alt': true
+      }
+    });
+  });
+
+  afterEach(() => mockFS.restore());
+
+  describe('with errors', () => {
+    beforeAll(() => {
+      path = 'foo/bar.html';
+
+      mockFS({
+        [path]: `<body>
+          <img src="foo.jpg">
+        </body>`
+      });
+    });
+
+    it('should have an error', () => expect(result.errors).toHaveLength(1));
+  });
 });
 
 describe('lintStream', () => {
