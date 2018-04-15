@@ -44,9 +44,9 @@ describe('multiple <h1> tags', () => {
       'More than one <h1> tags exist'
     ));
 
-  it('check the first element', () =>
-    expect(result.errors[0]).toHaveProperty('element', $('h1')[1]));
-
-  it('check the second element', () =>
-    expect(result.errors[1]).toHaveProperty('element', $('h1')[2]));
+  it('check element', () => {
+    for (let i = 0; i < result.errors.length; i++) {
+      expect(result.errors[i]).toHaveProperty('element', $('h1')[i + 1]);
+    }
+  });
 });

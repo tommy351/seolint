@@ -58,8 +58,10 @@ describe('multiple <a> tags', () => {
   });
 
   it('should have two errors', () => expect(result.errors).toHaveLength(2));
+
   it('check first element', () =>
     expect(result.errors[0]).toHaveProperty('element', $('a')[0]));
+
   it('check second element', () =>
     expect(result.errors[1]).toHaveProperty('element', $('a')[2]));
 });

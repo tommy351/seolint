@@ -28,7 +28,7 @@ describe('title', () => {
     it('check message', () =>
       expect(result.errors[0]).toHaveProperty(
         'message',
-        '<title> tag is required in <head>'
+        '<title> tag is required'
       ));
 
     it('check element', () =>
@@ -64,20 +64,20 @@ describe('meta', () => {
     it('check the first message', () =>
       expect(result.errors[0]).toHaveProperty(
         'message',
-        `<meta name="description"> is required in <head>`
+        `<meta name="description"> is required`
       ));
-
-    it('check the first element', () =>
-      expect(result.errors[0]).toHaveProperty('element', $('head')[0]));
 
     it('check the second message', () =>
       expect(result.errors[1]).toHaveProperty(
         'message',
-        `<meta name="keywords"> is required in <head>`
+        `<meta name="keywords"> is required`
       ));
 
-    it('check the second element', () =>
-      expect(result.errors[1]).toHaveProperty('element', $('head')[0]));
+    it('check the element', () => {
+      for (const err of result.errors) {
+        expect(err).toHaveProperty('element', $('head')[0]);
+      }
+    });
   });
 
   describe('with <meta> tag except keywords', () => {
