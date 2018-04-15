@@ -19,7 +19,11 @@ try {
 <head>
 </head>
 <body>
+  <h1>Important</h1>
   <img src="foo.jpg">
+  <h1>Very important</h1>
+  <a href="http://example.com">Example</a>
+  <h1>Really important</h1>
 </body>
 </html>
 `,

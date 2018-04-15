@@ -25,6 +25,7 @@ const rule: Rule = {
 
     if (options.title && !head.children('title').length) {
       errors.push({
+        element: head[0],
         message: '<title> tag is required in <head>'
       });
     }
@@ -37,6 +38,7 @@ const rule: Rule = {
     for (const name of options.meta) {
       if (!~metas.indexOf(name)) {
         errors.push({
+          element: head[0],
           message: `<meta name="${name}"> is required in <head>`
         });
       }
