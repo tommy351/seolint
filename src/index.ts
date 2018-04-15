@@ -1,2 +1,2 @@
-export { Linter, LintOptions } from './Linter';
-export { Rule, LintResult, LintError, Location } from './types';
+export { Linter } from './Linter';
+export { Rule, LintResult, LintError, Location, LintOptions } from './types';

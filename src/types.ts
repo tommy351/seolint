@@ -20,3 +20,9 @@ export interface Location {
   startOffset: number;
   endOffset: number;
 }
+
+export interface LintOptions {
+  rules: {
+    [key: string]: any;
+  };
+}
