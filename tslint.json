@@ -2,6 +2,7 @@
   "extends": ["tslint:recommended", "tslint-config-prettier"],
   "rulesDirectory": ["tslint-plugin-prettier"],
   "rules": {
-    "interface-name": false
+    "interface-name": false,
+    "no-bitwise": false
   }
 }

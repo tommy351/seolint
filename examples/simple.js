@@ -4,6 +4,7 @@ const linter = new seolint.Linter();
 const options = {
   rules: {
     'a-rel': true,
+    head: true,
     'img-alt': true,
     'max-strong': true,
     'only-one-h1': true
