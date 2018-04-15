@@ -12,7 +12,7 @@ const options = {
 };
 
 try {
-  const result = linter.lintString(
+  const { errors } = linter.lintString(
     `
 <!DOCTYPE html>
 <html>
@@ -26,7 +26,15 @@ try {
     options
   );
 
-  console.log('result', result);
+  if (errors.length) {
+    for (const { message, location, name } of errors) {
+      console.log(
+        `${
+          location ? `[${location.line}:${location.col}] ` : ''
+        }${name}: ${message}`
+      );
+    }
+  }
 } catch (err) {
   console.error(err);
 }

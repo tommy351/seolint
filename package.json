@@ -6,7 +6,8 @@
   "scripts": {
     "build": "tsc",
     "test": "jest",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "lint": "tslint --project . src/**/*.ts"
   },
   "author": "Tommy Chen (tommy351@gmail.com)",
   "license": "ISC",
@@ -46,21 +47,10 @@
       "^.+\\.tsx?$": "ts-jest"
     },
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
-    "moduleFileExtensions": [
-      "ts",
-      "js",
-      "json",
-      "node"
-    ],
-    "testPathIgnorePatterns": [
-      "<rootDir>/dist/",
-      "<rootDir>/node_modules/"
-    ]
+    "moduleFileExtensions": ["ts", "js", "json", "node"],
+    "testPathIgnorePatterns": ["<rootDir>/dist/", "<rootDir>/node_modules/"]
   },
   "lint-staged": {
-    "*.ts": [
-      "tslint --fix --project .",
-      "git add"
-    ]
+    "*.ts": ["tslint --fix --project .", "git add"]
   }
 }

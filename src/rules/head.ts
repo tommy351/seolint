@@ -2,6 +2,7 @@ import { LintError, Rule } from '../types';
 
 const rule: Rule = {
   schema: {
+    default: {},
     properties: {
       meta: {
         default: ['description', 'keywords'],
