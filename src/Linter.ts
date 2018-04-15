@@ -88,12 +88,14 @@ export class Linter {
   }
 }
 
-function normalizeLintOptions(options: LintOptions) {
-  for (const key of Object.keys(options.rules)) {
-    const rule = options.rules[key];
+function normalizeLintOptions(options: LintOptions): LintOptions {
+  const { rules = {} } = options || {};
+
+  for (const key of Object.keys(rules)) {
+    const rule = rules[key];
 
     if (!Array.isArray(rule)) {
-      options.rules[key] = [rule];
+      rules[key] = [rule];
     }
   }
 
